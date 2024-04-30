@@ -21,5 +21,5 @@ console.log(identity<boolean>(true));
 function getRandomElement<T>(list: T[]): T {
   return list[Math.floor(Math.random() * list.length)];
 }
-// And this will work
+// And this will work. Infers number array
 console.log(getRandomElement(arr1));
