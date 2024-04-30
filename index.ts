@@ -3,14 +3,14 @@ const arr1: number[] = [1, 2, 3];
 // Can be written as...
 const arr2: Array<number> = [4, 5, 6];
 // querySelector is also a geeric type
-document.querySelector<HTMLElement>('root');
+// document.querySelector<HTMLElement>('root');
 // Type inferred as Element | null
 // TS does not know it will be an HTMLInputElement so value is flagged
-const username = document.querySelector('#username').value;
+// const username = document.querySelector('#username').value;
 // Fix by passing type to generic, but still not happy as could be null
-const password = document.querySelector<HTMLInputElement>('#password').value;
+// const password = document.querySelector<HTMLInputElement>('#password').value;
 // Can force TS to accept input exists by using !
-const message = document.querySelector<HTMLInputElement>('#message')!.value;
+// const message = document.querySelector<HTMLInputElement>('#message')!.value;
 // Writing a generic. T is a standing for the type of whatever is passed
 const identity = <T>(item: T): T => {
   return item;
@@ -27,7 +27,11 @@ console.log(getRandomElement<number>(arr1));
 console.log(getRandomElement(arr2));
 // NB. In jsx you need to add a trailing comma so it knows it's not HTML
 // Generics can have multiple params
-const merge = <T, U>(object1: T, object2: U): T & U => {
+// Extends keywords allows us to be more specific about what to accept
+const merge = <T extends object, U extends object>(
+  object1: T,
+  object2: U
+): T & U => {
   return {
     ...object1,
     ...object2
@@ -42,5 +46,7 @@ const obj1 = {
 const obj2 = {
   employed: false
 };
-
+//Won't work
+console.log(merge(obj1, 9));
+// Will work
 console.log(merge(obj1, obj2));
