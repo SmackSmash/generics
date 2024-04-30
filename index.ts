@@ -17,3 +17,9 @@ function identity<T>(item: T): T {
 }
 // So this is OK! TS sees it as identity<boolean>(item: boolean): boolean
 console.log(identity<boolean>(true));
+// Another generic...
+function getRandomElement<T>(list: T[]): T {
+  return list[Math.floor(Math.random() * list.length)];
+}
+// And this will work
+console.log(getRandomElement(arr1));
