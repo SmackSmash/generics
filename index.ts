@@ -11,3 +11,9 @@ const username = document.querySelector('#username').value;
 const password = document.querySelector<HTMLInputElement>('#password').value;
 // Can force TS to accept input exists by using !
 const message = document.querySelector<HTMLInputElement>('#message')!.value;
+// Writing a generic. T is a standing for the type of whatever is passed
+function identity<T>(item: T): T {
+  return item;
+}
+// So this is OK! TS sees it as identity<true>(item: true): true
+console.log(identity(true));
