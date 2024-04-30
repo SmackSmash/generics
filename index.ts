@@ -15,5 +15,5 @@ const message = document.querySelector<HTMLInputElement>('#message')!.value;
 function identity<T>(item: T): T {
   return item;
 }
-// So this is OK! TS sees it as identity<true>(item: true): true
-console.log(identity(true));
+// So this is OK! TS sees it as identity<boolean>(item: boolean): boolean
+console.log(identity<boolean>(true));
