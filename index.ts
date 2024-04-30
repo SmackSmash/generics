@@ -51,10 +51,10 @@ console.log(merge(obj1, 9));
 // Will work
 console.log(merge(obj1, obj2));
 // Default values
-const makeEmptyArray = <T>(): T[] => {
+const makeEmptyArray = <T = number>(): T[] => {
   return [];
 };
 // Array will be empty, but still have a TS type
-const numArr = makeEmptyArray<number>();
+const numArr = makeEmptyArray();
 // numArr: number[]
 console.log(numArr);
