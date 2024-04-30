@@ -58,3 +58,8 @@ const makeEmptyArray = <T = number>(): T[] => {
 const numArr = makeEmptyArray();
 // numArr: number[]
 console.log(numArr);
+
+// ====================================================
+// TYPE DECLARATIONS
+// Working with 3rd party code
+// ====================================================
