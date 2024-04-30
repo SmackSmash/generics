@@ -21,5 +21,7 @@ console.log(identity<boolean>(true));
 function getRandomElement<T>(list: T[]): T {
   return list[Math.floor(Math.random() * list.length)];
 }
-// And this will work. Infers number array
-console.log(getRandomElement(arr1));
+// This will work...
+console.log(getRandomElement<number>(arr1));
+// ...and this will work. Infers number array but will infer any type
+console.log(getRandomElement(arr2));
