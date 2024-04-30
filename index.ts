@@ -12,15 +12,15 @@ const password = document.querySelector<HTMLInputElement>('#password').value;
 // Can force TS to accept input exists by using !
 const message = document.querySelector<HTMLInputElement>('#message')!.value;
 // Writing a generic. T is a standing for the type of whatever is passed
-function identity<T>(item: T): T {
+const identity = <T>(item: T): T => {
   return item;
-}
+};
 // So this is OK! TS sees it as identity<boolean>(item: boolean): boolean
 console.log(identity<boolean>(true));
 // Another generic...
-function getRandomElement<T>(list: T[]): T {
+const getRandomElement = <T>(list: T[]): T => {
   return list[Math.floor(Math.random() * list.length)];
-}
+};
 // This will work...
 console.log(getRandomElement<number>(arr1));
 // ...and this will work. Infers number array but will infer any type
