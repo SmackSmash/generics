@@ -25,3 +25,22 @@ const getRandomElement = <T>(list: T[]): T => {
 console.log(getRandomElement<number>(arr1));
 // ...and this will work. Infers number array but will infer any type
 console.log(getRandomElement(arr2));
+// NB. In jsx you need to add a trailing comma so it knows it's not HTML
+// Generics can have multiple params
+const merge = <T, U>(object1: T, object2: U): T & U => {
+  return {
+    ...object1,
+    ...object2
+  };
+};
+
+const obj1 = {
+  name: 'Dan',
+  age: 37
+};
+
+const obj2 = {
+  employed: false
+};
+
+console.log(merge(obj1, obj2));
